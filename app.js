@@ -19,7 +19,16 @@ var commentRoutes    = require("./routes/comments"),
 
 //seedDB();
 
-mongoose.connect("mongodb://localhost:27017/yelp_camp", { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
+//mongoose.connect("mongodb://localhost:27017/yelp_camp", { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect("mongodb://jatin:hello@cluster0-shard-00-00-zbphv.mongodb.net:27017,cluster0-shard-00-01-zbphv.mongodb.net:27017,cluster0-shard-00-02-zbphv.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority", {
+	useNewUrlParser: true, 
+	useCreateIndex: true,
+	useUnifiedTopology: true
+}).then(() => {
+	console.log("Connected to DB");
+}).catch(err => {
+	console.log("error", err.message);	
+});
 
 app.use(bodyParser.urlencoded({extended: true}));
 
