@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Green Foods</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<div class="container">
+		<header id="navbar">
+			<a href="#" class="logo">Good<span>Foods</span></a>
+			<ul>
+				<li><a href="#" class="active">Home</a></li>
+				<li><a href="#">Menu</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+			<span class="menuIcon" onclick="menuToggle();"></span>
+		</header>
+		<div class="content">
+			<div class="bannerText" id="slideshowText">
+				<div class="active">
+					<h2>EAT Healthy<br>
+					Stay Healthy</h2>
+					<p>Lorem ipsum dolor sit amet, eu quidam possim convenire vel. Ad cum tollit patrioque constituto. Ei mucius tacimates intellegat cum, sed nostrum propriae eleifend id. An cum erat eloquentiam, possim fierent ut cum. Cu inani recusabo ius, ea essent moderatius nec. Ei eius docendi eam. Cu est soluta admodum.</p>
+					<a href="#">Read More</a>
+				</div>
+				<div>
+					<h2>Eat Your<br>
+					Veggies</h2>
+					<p>Massa tempor nec feugiat nisl pretium. Elementum nibh tellus molestie nunc non blandit massa enim nec. Sit amet consectetur adipiscing elit. In metus vulputate eu scelerisque felis imperdiet proin fermentum.</p>
+					<a href="#">Read More</a>
+				</div>
+				<div>
+					<h2>Good Food<br>
+					Good Mood</h2>
+					<p>Vitae nunc sed velit dignissim sodales. Viverra tellus in hac habitasse platea dictumst vestibulum. Mauris cursus mattis molestie a iaculis at erat. Nibh praesent tristique magna sit. Consectetur libero id faucibus nisl tincidunt. Id cursus metus aliquam eleifend. </p>
+					<a href="#">Read More</a>
+				</div>
+			</div>
+			<div class="bannerImg" id="slideshow">
+				<img src="https://images.pexels.com/photos/2862154/pexels-photo-2862154.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="active">
+				<img src="https://images.pexels.com/photos/434258/pexels-photo-434258.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+				<img src="https://images.pexels.com/photos/1143754/pexels-photo-1143754.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+			</div>
+		</div>
+		<div class="icons">
+			<ul class="sci">
+				<li><a href="#"><img src="https://image.flaticon.com/icons/png/512/59/59439.png"></a></li>
+				<li><a href="#"><img src="https://image.flaticon.com/icons/png/512/733/733635.png"></a></li>
+				<li><a href="#"><img src="https://image.flaticon.com/icons/png/512/1077/1077042.png"></a></li>
+			</ul>
+			<ul class="controls">
+				<li><a href="#"><img src="left.png" onclick="prevSlide();prevSlideText();"></a></li>
+				<li><a href="#"><img src="right.png" onclick="nextSlide();nextSlideText();"></a></li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var slideshow = document.getElementById('slideshow');
+		var slides = slideshow.getElementsByTagName('img');
+		var index = 0;
+
+		function nextSlide() {
+			slides[index].classList.remove('active');
+			index = (index + 1) % slides.length;
+			slides[index].classList.add('active');
+		}
+		function prevSlide() {
+			slides[index].classList.remove('active');
+			index = (index - 1 + slides.length) % slides.length;
+			slides[index].classList.add('active');
+		}
+
+		var slideshowText = document.getElementById('slideshowText');
+		var slidesText = slideshowText.getElementsByTagName('div');
+		var i = 0;
+
+		function nextSlideText() {
+			slidesText[i].classList.remove('active');
+			i = (i + 1) % slidesText.length;
+			slidesText[i].classList.add('active');
+		}
+		function prevSlideText() {
+			slidesText[i].classList.remove('active');
+			i = (i - 1 + slidesText.length) % slidesText.length;
+			slidesText[i].classList.add('active');
+		}
+
+		function menuToggle() {
+			var nav = document.getElementById('navbar');
+			nav.classList.toggle('active');
+		}
+	</script>
+
+</body>
+</html>
+
